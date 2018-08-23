@@ -1,5 +1,30 @@
-﻿<script type="text/javascript"async
- src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+﻿
+<script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<script type="text/javascript">
+
+    MathJax.Hub.Config({
+
+        extensions: ["tex2jax.js"],
+
+        jax: ["input/TeX", "output/HTML-CSS"],
+
+        tex2jax: {
+
+            inlineMath: [["\\(", "\\)"]],
+
+            displayMath: [["$$", "$$"],["\\[", "\\]"]],
+
+            processEscapes: true
+
+        },
+
+        "HTML-CSS": { availableFonts: ["TeX"] }
+
+    });
+
 </script>
 
 ## T1 sol
@@ -23,15 +48,10 @@
 首先斜率为正和斜率为负的方案数显然是相同的，这里只考虑斜率为正的答案。
 
 我们枚举两端的点的横纵坐标之差$i,j​$，然后中间整点的个数就随之确定了，然后这样的“两端的点对”的个数正是$(n-i)*(m-j)​$，中间的点个数是$gcd(i,j)-1​$，原因看下图：
-
 ![hh](http://images.cnblogs.com/cnblogs_com/CK6100LGEV2/1263985/o_hh.png)
-
 可以把原图切割成$gcd(i,j)$个边长为$(i/gcd(i,j),j/gcd(i,j))$的小三角形，所以整点就有$gcd(i,j)-1$个。
-
 所以得出$ans=\sum_{i=1}^{n}\sum_{j=1}^{m}(gcd(i,j)-1)(n-i)(m-j)$
-
 $=\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)\sum_{d|gcd(i,j)}\varphi(d)-\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)$
-
 假设$n<m$
 
 $=\sum_{d=1}^{n}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}(n-id)(m-id)\varphi(d)-\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)$
@@ -56,4 +76,4 @@ $p[i]=max(a_j+\sqrt{j-i})-a_i(j>i)$
 
 本题可能卡常！本题可能卡常！本题可能卡常！（也许是出题人自带大常数= =）
 
-我的程序在我的老爷机上跑了4.7秒左右，当然我的机子比学校的机子慢，和ccf老爷机速度差不多。</script>
+我的程序在我的老爷机上跑了4.7秒左右，当然我的机子比学校的机子慢，和ccf老爷机速度差不多。
