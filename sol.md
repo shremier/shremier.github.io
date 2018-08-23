@@ -1,32 +1,15 @@
-﻿
-<script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
+﻿<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+formula1: $$n==x$$
 
+formula2: $$n!=x$$
 
-<script type="text/javascript">
+formula3: (m==y)
 
-    MathJax.Hub.Config({
+formula4: [m!=y]
 
-        extensions: ["tex2jax.js"],
+formula5: \(k==z\)
 
-        jax: ["input/TeX", "output/HTML-CSS"],
-
-        tex2jax: {
-
-            inlineMath: [["\\(", "\\)"]],
-
-            displayMath: [["$$", "$$"],["\\[", "\\]"]],
-
-            processEscapes: true
-
-        },
-
-        "HTML-CSS": { availableFonts: ["TeX"] }
-
-    });
-
-</script>
-
+formula6: \[k!=z\]
 ## T1 sol
 
 显然我们发现这个生成的序列一定是一个V字形，1是最底端。
