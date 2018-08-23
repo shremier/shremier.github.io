@@ -1,4 +1,4 @@
-﻿<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+﻿<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 
 ## T1 sol
 
@@ -54,4 +54,4 @@ $p[i]=max(a_j+\sqrt{j-i})-a_i(j>i)$
 
 本题可能卡常！本题可能卡常！本题可能卡常！（也许是出题人自带大常数= =）
 
-我的程序在我的老爷机上跑了4.7秒左右，当然我的机子比学校的机子慢，和ccf老爷机速度差不多。
+我的程序在我的老爷机上跑了4.7秒左右，当然我的机子比学校的机子慢，和ccf老爷机速度差不多。</script>
