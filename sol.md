@@ -23,24 +23,24 @@
 ![hh](http://images.cnblogs.com/cnblogs_com/CK6100LGEV2/1263985/o_hh.png)
 可以把原图切割成$gcd(i,j)$个边长为$(i/gcd(i,j),j/gcd(i,j))$的小三角形，所以整点就有$gcd(i,j)-1$个。
 所以得出$ans=\sum_{i=1}^{n}\sum_{j=1}^{m}(gcd(i,j)-1)(n-i)(m-j)$
-$=\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)\sum_{d|gcd(i,j)}\varphi(d)-\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)$
-假设$n<m$
+$$=\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)\sum_{d|gcd(i,j)}\varphi(d)-\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)$$
+假设$$n<m$$
 
-$=\sum_{d=1}^{n}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}(n-id)(m-id)\varphi(d)-\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)$
+$$=\sum_{d=1}^{n}\sum_{i=1}^{\lfloor\frac{n}{d}\rfloor}\sum_{j=1}^{\lfloor\frac{m}{d}\rfloor}(n-id)(m-id)\varphi(d)-\sum_{i=1}^{n}\sum_{j=1}^{m}(n-i)(m-j)$$
 
-因为$(n-id),(m-id),(n-i)(m-j)$这些都是等差数列，能够$O(1)$计算，所以最终的复杂度为$O(n)$。
+因为$(n-id),(m-id),(n-i)(m-j)$这些都是等差数列，能够$$O(1)$$计算，所以最终的复杂度为$$O(n)$$。
 
 ## T3 Sol
 
 首先我们可以推出来：
 
-$p[i]=max(a_j+\sqrt{i-j})-a_i(j<i)$
+$$p[i]=max(a_j+\sqrt{i-j})-a_i(j<i)$$
 
-$p[i]=max(a_j+\sqrt{j-i})-a_i(j>i)$
+$$p[i]=max(a_j+\sqrt{j-i})-a_i(j>i)$$
 
 然后我们可以分两次dp。
 
-但是暴力dp是$O(n^2)​$的，会TLE，我们发现这题满足决策单调性的性质。具体地，如果k这个位置的决策是j，那么对于任意$i<j​$，i就不会再产生任何贡献，因为根号的增长会越来越慢，j的增长会比i还要快。而且每个点的贡献区域一定是一个区间，这样的话我们可以进行整体二分，我们每次找到一个区间mid的决策位置pos（直接暴力找），然后根据$[l,mid)​$的决策区域是$[L,pos]​$，$(mid,r]​$的决策区域是$[pos,R]​$继续进行求解，注意大小写，小写是处理区间，大写是可决策区间。
+但是暴力dp是$O(n^2)​$的，会TLE，我们发现这题满足决策单调性的性质。具体地，如果k这个位置的决策是j，那么对于任意$$i<j​$$，i就不会再产生任何贡献，因为根号的增长会越来越慢，j的增长会比i还要快。而且每个点的贡献区域一定是一个区间，这样的话我们可以进行整体二分，我们每次找到一个区间mid的决策位置pos（直接暴力找），然后根据$$[l,mid)​$$的决策区域是$$[L,pos]​$$，$$(mid,r]​$$的决策区域是$$[pos,R]​$$继续进行求解，注意大小写，小写是处理区间，大写是可决策区间。
 
 求出$p_i$之后，就转化成了区间小于等于某个数的数字个数，这个可以使用主席树来解决。
 
